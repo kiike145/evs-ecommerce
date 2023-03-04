@@ -1,0 +1,9 @@
+.header {
+    background-color: lightgray;
+    height: 10vh;
+}
+
+.barraNavegacion {
+    display: flex;
+    justify-content: space-around;
+}

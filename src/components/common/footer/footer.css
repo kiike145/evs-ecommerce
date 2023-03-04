@@ -1,0 +1,13 @@
+.footer {
+    background-color: lightgray;
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0; 
+}
+
+.barraNavegacion {
+    display: flex;
+    justify-content: space-around;
+}
