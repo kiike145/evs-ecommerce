@@ -4,7 +4,9 @@ const ProductListItem = ({product = {} }) => {
 
     return(
         <div>
-            <p>{product.title}</p>
+            <p>{product.nombre}</p>
+            <p>{product.precio}</p>
+            <p>{product.rutaimagen}</p>
         </div>
     );
 }

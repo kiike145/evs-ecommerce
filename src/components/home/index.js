@@ -4,17 +4,20 @@ import "./home.css";
 
 const Home = () => {
 
-    const [photos , setPhotos] = useState([]);
+    const [product , setProduct] = useState([]);
+
+    //const id1 = Math.floor(Math.random() * 10) + 1;
+    //const id2 = Math.floor(Math.random() * 10) + 1;
 
     useEffect(() => {
-            fetch('https://jsonplaceholder.typicode.com/photos?id=1&id=2&id=3&id=4&id=5&id=6')
+            fetch("http://localhost:8080/articulos/list")
                 .then(response => response.json())
-                .then(data => setPhotos(data))
+                .then(data => setProduct(data))
         } , []
     );
 
     return(
-        <ProductList products = {photos} />
+        <ProductList products = {product} />
     );
 };
 

@@ -13,7 +13,14 @@ label {
     margin-bottom: .5rem;
 }
 
-.links {
+.singupBtn {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form p {
+    font-weight: bolder;
+    padding: .3rem;
+    background: rgba(255, 0, 0, .3);
 }
