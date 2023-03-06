@@ -12,7 +12,6 @@ const UserForm = () => {
                     <label for="username">Password: </label>
                     <input type="pass" placeholder="Password"></input>
                 </div>
-
                 <div className="form-row links">
                     <button type='submit'>Log In</button>
                     <a href="/signUp">Sign Up</a>

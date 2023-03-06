@@ -1,0 +1,19 @@
+form {
+    margin: 30vh auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+label {
+    margin-right: .4rem;
+}
+
+.form-row {
+    margin-bottom: .5rem;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}

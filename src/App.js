@@ -3,7 +3,8 @@ import "./App.css";
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
 import Home from "./components/home";
-import UserForm from "./components/form";
+import FormLogin from "./components/formLogin";
+import FormSignUp from "./components/formSignUp";
 
 function App() {
 	return (
@@ -13,7 +14,8 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Navigate to="/home" />} />
 					<Route path="/home" element={<Home />} />
-					<Route path="/login" element={<UserForm />} />
+					<Route path="/login" element={<FormLogin />} />
+					<Route path="/signup" element={<FormSignUp />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>

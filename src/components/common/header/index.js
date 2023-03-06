@@ -4,9 +4,9 @@ const Headers = () => {
     return (
         <nav className="barraNavegacion header">
             <a href="/">Home</a>
-            <a href="#">Products</a>
-            <a href="/login">Log In/Sign Up</a>
-            <a href="#">Carrito</a>
+            <a href="/products">Products</a>
+            <a href="/login">Log In</a>
+            <a href="/cart">Carrito</a>
         </nav>
     );
 };
