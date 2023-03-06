@@ -1,18 +1,14 @@
 import "./header.css";
 
 const Headers = () => {
-
     return (
-        <div className="header">
-            <nav className="barraNavegacion">
-                <a href="#">Home</a>
-                <a href="#">Products</a>
-                <a href="#">Log In/Sign Up</a>
-                <a href="#">Carrito</a>
-            </nav> 
-        </div>
+        <nav className="barraNavegacion header">
+            <a href="/">Home</a>
+            <a href="#">Products</a>
+            <a href="/login">Log In/Sign Up</a>
+            <a href="#">Carrito</a>
+        </nav>
     );
-
 };
 
 export default Headers;

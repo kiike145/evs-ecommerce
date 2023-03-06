@@ -6,8 +6,3 @@
     left: 0;
     bottom: 0; 
 }
-
-.barraNavegacion {
-    display: flex;
-    justify-content: space-around;
-}

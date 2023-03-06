@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
 import Home from "./components/home";
+import UserForm from "./components/form";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Navigate to="/home" />} />
 					<Route path="/home" element={<Home />} />
+					<Route path="/login" element={<UserForm />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>
