@@ -35,60 +35,60 @@ public class Usuario {
 	private List<Perfil> perfiles;
 
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	public String getApellido() {
-		return apellido;
+		return this.apellido;
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	public String getUsername() {
-		return username;
+		return this.username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	public Integer getEstatus() {
-		return estatus;
+		return this.estatus;
 	}
 	public void setEstatus(Integer estatus) {
 		this.estatus = estatus;
 	}
-	public String getFechaRegistro() {
-		return birthday;
+	public String getBirthday() {
+		return this.birthday;
 	}
-	public void setFechaRegistro(String fechaRegistro) {
-		this.birthday = fechaRegistro;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 	public List<Perfil> getPerfiles() {
-		return perfiles;
+		return this.perfiles;
 	}
 	public void setPerfiles(List<Perfil> perfiles) {
 		this.perfiles = perfiles;
 	}
-
+	
 	// OTROS
 	public void agregar(Perfil tempPerfil) {
 		

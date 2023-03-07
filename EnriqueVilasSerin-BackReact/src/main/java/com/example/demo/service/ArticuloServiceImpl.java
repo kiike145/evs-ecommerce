@@ -38,12 +38,7 @@ public class ArticuloServiceImpl implements ArticulosService {
 	}
 
 	@Override
-	public List<Articulo> obtenerArticulos() {
-		
-		for (Articulo a : articuloRepo.findAll()) {
-			System.out.println(a);
-		}
-		
+	public List<Articulo> obtenerArticulos() {		
 		return articuloRepo.findAll();
 	}
 

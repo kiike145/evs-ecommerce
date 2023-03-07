@@ -26,10 +26,4 @@ public class ArticulosController {
 		return articulosService.obtenerArticulos();
 	}
 	
-	@PostMapping("/save")
-	public void saveArticulo(@RequestBody Articulo articulo) {
-		// System.out.println(articulo);
-		articulosService.guardarArticulo(articulo);
-	}
-
 }

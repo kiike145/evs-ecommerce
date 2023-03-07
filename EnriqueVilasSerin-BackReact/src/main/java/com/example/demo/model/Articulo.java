@@ -33,7 +33,7 @@ public class Articulo {
 		this.nombre = nombre;
 	}
 	public String getDescripcion() {
-		return this.nombre;
+		return this.descripcion;
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
@@ -54,6 +54,6 @@ public class Articulo {
 	// toString
 	@Override
 	public String toString() {
-		return "Articulo [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion +", precio=" + precio + ", rutaimagen=" + rutaimagen + "]";
+		return "Articulo [\n\tid=" + id + "\n\tnombre=" + nombre + ",\n\tdescripcion=" + descripcion +", \n\tprecio=" + precio + ", \n\trutaimagen=" + rutaimagen + "\n]";
 	}
 }

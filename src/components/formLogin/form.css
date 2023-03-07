@@ -1,8 +1,14 @@
 form {
-  margin: 15vh auto;
+  margin: 3vh auto;
   display: flex;
   justify-content: center;
   align-self: center;
+}
+
+.form-group {
+  padding: 3rem;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .form-row {

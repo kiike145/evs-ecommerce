@@ -21,17 +21,16 @@ public class UsersSerivceImpl implements UsersService {
 	@Override
 	public void registrarUsuario(Usuario u) {
 		
-		System.out.println(u.getFechaRegistro());
-		
 		Perfil p = new Perfil();
 		p.setId(1);
 		p.setPerfil("USUARIO");
+		
+		System.out.println(u);
 		
 		u.agregar(p);
 		u.setPassword(passEncoder.encode(u.getPassword()));
 		u.setEstatus(1);
 		
-		System.out.println(u);
 	}
 	
 
