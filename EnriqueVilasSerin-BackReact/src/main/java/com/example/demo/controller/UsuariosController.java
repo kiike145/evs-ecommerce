@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Usuario;
 import com.example.demo.service.UsersService;
-
 
 @RestController
 @RequestMapping(value = "/users")
@@ -27,5 +23,9 @@ public class UsuariosController {
 		System.out.println(user);
 		userService.registrarUsuario(user);
 	}
-
+	
+	@PostMapping("/login")
+	public void loginUsuario(@RequestBody Usuario user) {
+		System.out.println("Username= " + user.getUsername() + " - Password= " + user.getPassword());
+	}
 }

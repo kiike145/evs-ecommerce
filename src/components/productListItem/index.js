@@ -1,5 +1,5 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ProductListItemDetail from "../productListItemDetails";
 
 import "./productListItem.css";
 
@@ -11,8 +11,7 @@ const ProductListItem = ({ product = {} }) => {
                 <Card.Img variant="top" src={product.rutaimagen} alt="Imagen producto" />
                 <Card.Body>
                     <Card.Title>{product.nombre}</Card.Title>
-                    <Card.Text>{product.descripcion}</Card.Text>
-                    <Button variant="primary"><a>Añadir al carrito</a></Button>
+                    <ProductListItemDetail product={product} />
                 </Card.Body>
             </Card>
         </div>

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./signupForm.css";
 
@@ -15,11 +16,22 @@ const SignupForm = () => {
 	});
 
 	const handleChange = event => {
+
+		const fechaNacimiento = new Date(formState.birthday);
+		const edad = new Date().getFullYear() - fechaNacimiento.getFullYear();
+
+		if (edad < 18) {
+			setError("Hay que ser mayor de edad");
+			return;
+		}
+
 		setFormState({
 			...formState,
 			[event.target.name]: event.target.value,
 		});
 	};
+
+	const redirect = useNavigate();
 
 	const saveUser = () => {
 
@@ -36,9 +48,7 @@ const SignupForm = () => {
 			headers: {
 				"Content-type": "application/json; charset=UTF-8",
 			},
-		})
-			.then((response) => response.json())
-			.then((data) => console.log(data));
+		});
 
 	};
 
@@ -46,15 +56,9 @@ const SignupForm = () => {
 
 		event.preventDefault();
 		setError("");
-		var fechaNacimiento = new Date(formState.birthday);
-		var edad = new Date().getFullYear() - fechaNacimiento.getFullYear();
-
-		if (edad < 18) {
-			setError("Hay que ser mayor de edad");
-			return;
-		}
-
 		saveUser();
+		sessionStorage.setItem("isLogged", true);
+		redirect("/home");
 	};
 
 	return (
@@ -90,13 +94,10 @@ const SignupForm = () => {
 						{error && <p className="error">{error}</p>}
 						<button className="btn btn-primary" type="submit">Sign Up</button>
 					</div>
-
 				</div>
 			</form>
 		</div>
 	);
 };
-
-
 
 export default SignupForm;

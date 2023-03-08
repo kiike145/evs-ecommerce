@@ -1,22 +1,67 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./form.css";
 
 const UserForm = () => {
+
+    const [error, setError] = useState([]); // Mostrarle los errores al usuario
+    const [formState, setFormState] = useState({ // Datos por defecto del formulario (vacio)
+        username: "",
+        password: ""
+    });
+
+    const handleChange = event => {
+        setFormState({
+            ...formState,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    const logIn = () => {
+        fetch("http://localhost:8080/users/login", {
+            method: "POST",
+            body: JSON.stringify({
+                "username": formState.username,
+                "password": formState.password
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        });
+    };
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        setError("");
+
+        console.log({ formState })
+        logIn();
+        redirect("/home");
+    };
+
+
+    const redirect = useNavigate();
+
     return (
         <div>
             <h2>Log In</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <div className="form-row d-flex justify-content-between">
-                        <label for="username">Username: </label>
-                        <input className="form-control" type="text" placeholder="Username"></input>
+                        <label htmlFor="username">Username: </label>
+                        <input className="form-control" type="text" name="username" onChange={handleChange} placeholder="Username"></input>
                     </div>
                     <div className="form-row d-flex justify-content-between">
-                        <label for="username">Password: </label>
-                        <input className="form-control" type="pass" placeholder="Password"></input>
+                        <label htmlFor="username">Password: </label>
+                        <input className="form-control" type="pass" name="password" onChange={handleChange} placeholder="Password"></input>
                     </div>
                     <div className="form-row d-flex justify-content-between links">
                         <button className="btn btn-primary" type="submit">Log In</button>
                         <a href="/signUp">Sign Up</a>
+                    </div>
+                    <div>
+                        {error && <p className="error">{error}</p>}
                     </div>
                 </div>
             </form>

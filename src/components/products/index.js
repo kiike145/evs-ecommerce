@@ -5,7 +5,7 @@ import "./products.css";
 
 const Products = () => {
 
-    const [product , setProduct] = useState([]);
+    const [product, setProduct] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:8080/articulos/list")
@@ -13,9 +13,12 @@ const Products = () => {
             .then(data => setProduct(data))
     }, []
     );
-    
+
     return (
-        <ProductList products = {product} />
+        <>
+            <h2>Product List</h2>
+            <ProductList products={product} />
+        </>
     );
 };
 

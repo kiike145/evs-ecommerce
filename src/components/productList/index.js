@@ -4,12 +4,13 @@ import "./productList.css";
 const ProductList = ({ products = [] }) => {
 
     return (
-        <div className="lista">
-
-            {products.map(product =>
-                (<ProductListItem key={`product-${product.id}`} product={product} />)
-            )}
-        </div>
+        <>
+            <div className="lista">
+                {products.map(product =>
+                    (<ProductListItem key={`product-${product.id}`} product={product} />)
+                )}
+            </div>
+        </>
     );
 }
 

@@ -1,8 +1,5 @@
 package com.example.demo.service;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,8 +30,6 @@ public class UsersSerivceImpl implements UsersService {
 		u.agregar(p);
 		u.setPassword(passEncoder.encode(u.getPassword()));
 		u.setEstatus(1);
-		
-		System.out.println(u);
 		
 		usersRepo.save(u);
 		
