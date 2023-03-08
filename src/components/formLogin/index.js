@@ -28,7 +28,7 @@ const UserForm = () => {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
-        });
+        }).then(data => console.log({ data }));
     };
 
     const handleSubmit = event => {
@@ -38,6 +38,7 @@ const UserForm = () => {
         console.log({ formState })
         logIn();
         redirect("/home");
+        //window.location.reload();
     };
 
 
@@ -54,7 +55,7 @@ const UserForm = () => {
                     </div>
                     <div className="form-row d-flex justify-content-between">
                         <label htmlFor="username">Password: </label>
-                        <input className="form-control" type="pass" name="password" onChange={handleChange} placeholder="Password"></input>
+                        <input className="form-control" type="password" name="password" onChange={handleChange} placeholder="Password"></input>
                     </div>
                     <div className="form-row d-flex justify-content-between links">
                         <button className="btn btn-primary" type="submit">Log In</button>

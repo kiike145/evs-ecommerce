@@ -4,6 +4,8 @@ import "./home.css";
 
 const Home = () => {
 
+    const isLogged = sessionStorage.getItem("isLogged");
+
     const [product, setProduct] = useState([]);
 
     //const id1 = Math.floor(Math.random() * 10) + 1;
