@@ -17,7 +17,11 @@ const Home = () => {
     );
 
     return (
-        <ProductList products={product} />
+        <div>
+            <h2>Home</h2>
+            <ProductList products={product} />
+        </div>
+
     );
 };
 

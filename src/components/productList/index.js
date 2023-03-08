@@ -5,6 +5,7 @@ const ProductList = ({ products = [] }) => {
 
     return (
         <div className="lista">
+
             {products.map(product =>
                 (<ProductListItem key={`product-${product.id}`} product={product} />)
             )}

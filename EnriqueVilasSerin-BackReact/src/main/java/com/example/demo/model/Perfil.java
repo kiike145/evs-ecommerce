@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="perfil")
+@Table(name="Perfiles")
 public class Perfil {
 	
 	// ATRIBUTOS

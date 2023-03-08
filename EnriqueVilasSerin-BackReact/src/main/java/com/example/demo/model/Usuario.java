@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "Usuarios")
 public class Usuario {
 
 	// ATRIBUTOS
@@ -30,8 +30,8 @@ public class Usuario {
 	private String birthday;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "usuarioperfil",
-			joinColumns = @JoinColumn(name = "idUsuario"),
-			inverseJoinColumns = @JoinColumn(name = "idPerfil"))
+			joinColumns = @JoinColumn(name = "idusuario"),
+			inverseJoinColumns = @JoinColumn(name = "idperfil"))
 	private List<Perfil> perfiles;
 
 	public Integer getId() {
@@ -97,6 +97,7 @@ public class Usuario {
 		}
 		perfiles.add(tempPerfil);
 	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email

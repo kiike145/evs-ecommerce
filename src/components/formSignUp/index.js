@@ -4,7 +4,7 @@ import "./signupForm.css";
 
 const SignupForm = () => {
 
-	// const [error, setError] = useState([]); // Mostrarle los errores al usuario
+	const [error, setError] = useState([]); // Mostrarle los errores al usuario
 	const [formState, setFormState] = useState({ // Datos por defecto del formulario (vacio)
 		nombre: "",
 		apellido: "",
@@ -14,8 +14,6 @@ const SignupForm = () => {
 		birthday: ""
 	});
 
-	const [data, setData] = useState([]);
-
 	const handleChange = event => {
 		setFormState({
 			...formState,
@@ -23,34 +21,45 @@ const SignupForm = () => {
 		});
 	};
 
-	const saveGames = () => {
+	const saveUser = () => {
+
 		fetch("http://localhost:8080/users/signup", {
-			method: 'POST',
-			body: ({
-				nombre: formState.nombre,
-				apellido: formState.apellido,
-				username: formState.username,
-				password: formState.password,
-				email: formState.email,
-				birthday: formState.birthday
+			method: "POST",
+			body: JSON.stringify({
+				"nombre": formState.nombre,
+				"apellido": formState.apellido,
+				"username": formState.username,
+				"password": formState.password,
+				"email": formState.email,
+				"birthday": formState.birthday
 			}),
 			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
+				"Content-type": "application/json; charset=UTF-8",
 			},
 		})
 			.then((response) => response.json())
 			.then((data) => console.log(data));
+
 	};
 
 	const handleSubmit = event => {
+
 		event.preventDefault();
-		console.log({ formState })
-		saveGames();
+		setError("");
+		var fechaNacimiento = new Date(formState.birthday);
+		var edad = new Date().getFullYear() - fechaNacimiento.getFullYear();
+
+		if (edad < 18) {
+			setError("Hay que ser mayor de edad");
+			return;
+		}
+
+		saveUser();
 	};
 
 	return (
 		<div>
-			<h2>Registro</h2>
+			<h2>Sign Up</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="form-group">
 					<div className="form-row d-flex justify-content-between">
@@ -77,7 +86,8 @@ const SignupForm = () => {
 						<label htmlFor="username">Fecha nacimiento: </label>
 						<input className="form-control" type="date" name="birthday" onChange={handleChange}></input>
 					</div>
-					<div className="form-row d-flex justify-content-center">
+					<div className="form-row d-flex justify-content-center flex-column">
+						{error && <p className="error">{error}</p>}
 						<button className="btn btn-primary" type="submit">Sign Up</button>
 					</div>
 
