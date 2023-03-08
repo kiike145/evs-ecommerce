@@ -25,7 +25,8 @@ public class UsuariosController {
 	}
 	
 	@PostMapping("/login")
-	public void loginUsuario(@RequestBody Usuario user) {
-		System.out.println("Username= " + user.getUsername() + " - Password= " + user.getPassword());
+	public boolean loginUsuario(@RequestBody Usuario user) {
+		System.out.println(user);
+		return userService.findUserByUsernameAndPass(user.getUsername(), user.getPassword());
 	}
 }

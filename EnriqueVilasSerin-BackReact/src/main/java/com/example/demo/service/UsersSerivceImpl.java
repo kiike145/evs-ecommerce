@@ -1,10 +1,7 @@
 package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.Perfil;
 import com.example.demo.model.Usuario;
@@ -15,8 +12,6 @@ public class UsersSerivceImpl implements UsersService {
 
 	@Autowired
 	UsersRepository usersRepo;
-	@Autowired
-	PasswordEncoder passEncoder;
 
 	@Override
 	public void registrarUsuario(Usuario u) {
@@ -28,18 +23,20 @@ public class UsersSerivceImpl implements UsersService {
 		System.out.println(u);
 		
 		u.agregar(p);
-		u.setPassword(passEncoder.encode(u.getPassword()));
 		u.setEstatus(1);
 		
 		usersRepo.save(u);
 		
 	}
-
-	@ResponseBody
-	public String encriptarPass(@PathVariable("pass") String pass) {
-		return passEncoder.encode(pass);
-	}
-
-
 	
+	@Override
+	public Boolean findUserByUsernameAndPass(String username, String password) {
+		
+		Usuario u = usersRepo.findByUsernameAndPassword(username, password);
+		
+		if (u != null) {
+			return true;
+		}
+		return false;
+	}
 }

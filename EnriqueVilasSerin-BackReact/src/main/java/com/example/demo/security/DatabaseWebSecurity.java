@@ -31,8 +31,6 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-		// Desactivar "csrf protection" para poder realizar peticiones
 		http.cors().and().csrf().disable();
 	}
 	
