@@ -30,7 +30,7 @@ public class UsersSerivceImpl implements UsersService {
 	}
 	
 	@Override
-	public Boolean findUserByUsernameAndPass(String username, String password) {
+	public boolean findUserByUsernameAndPass(String username, String password) {
 		
 		Usuario u = usersRepo.findByUsernameAndPassword(username, password);
 		

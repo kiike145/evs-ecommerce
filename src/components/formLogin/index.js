@@ -28,19 +28,21 @@ const UserForm = () => {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
-        }).then(data => console.log({ data }));
+        }).then(data => {
+            if (data.status === 202) { // Usuario correcto
+                sessionStorage.setItem("isLogged", true);
+            }
+            if (data.status === 400) { // Usuario no encontrado
+            }
+        });
     };
 
     const handleSubmit = event => {
         event.preventDefault();
         setError("");
-
-        console.log({ formState })
         logIn();
         redirect("/home");
-        //window.location.reload();
     };
-
 
     const redirect = useNavigate();
 
