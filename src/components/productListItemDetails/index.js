@@ -7,6 +7,8 @@ import Modal from 'react-bootstrap/Modal';
 const ProductListItemDetail = ({ product }) => {
 
     const [show, setShow] = useState(false);
+    // const [productosUser, setProductosUser] = useState([]);
+    const isLogged = sessionStorage.getItem("isLogged");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -30,9 +32,13 @@ const ProductListItemDetail = ({ product }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Add to de cart
-                    </Button>
+
+                    {isLogged === "true" ?
+                        <Button variant="primary" onClick={handleClose}>
+                            Add to de cart
+                        </Button> : <p>Have to be logged</p>
+                    }
+
                 </Modal.Footer>
             </Modal>
         </>

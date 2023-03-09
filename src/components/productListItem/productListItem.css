@@ -1,3 +1,7 @@
 .producto {
   margin: 1rem;
 }
+
+.imagen {
+  height: 28vh;
+}
