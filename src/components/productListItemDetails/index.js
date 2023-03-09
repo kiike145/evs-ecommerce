@@ -22,8 +22,9 @@ const ProductListItemDetail = ({ product }) => {
                     <Modal.Title>{product.nombre}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <img src={product.rutaimagen} className="imagenProducto"></img>
                     <p>{product.descripcion}</p>
-                    <p>Price: {product.precio}</p>
+                    <p>Price: {product.precio}€</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
