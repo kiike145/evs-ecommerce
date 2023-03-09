@@ -42,4 +42,9 @@ public class ArticuloServiceImpl implements ArticulosService {
 		return articuloRepo.findAll();
 	}
 
+	@Override
+	public List<Articulo> obtenerArticulosDestacados(List<Integer> ids) {
+		return articuloRepo.findAllById(ids);
+	}
+
 }

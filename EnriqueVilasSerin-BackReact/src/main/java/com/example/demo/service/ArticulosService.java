@@ -10,4 +10,5 @@ public interface ArticulosService {
 	void borrarArticuloById(Integer id);
 	Articulo obtenerArticuloById(Integer id);
 	List<Articulo> obtenerArticulos();
+	List<Articulo> obtenerArticulosDestacados(List<Integer> ids);
 }
