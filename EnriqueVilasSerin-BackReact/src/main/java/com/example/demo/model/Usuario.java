@@ -29,9 +29,9 @@ public class Usuario {
 	private Integer estatus;
 	private String birthday;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "usuarioperfil",
+	@JoinTable(name = "cart",
 			joinColumns = @JoinColumn(name = "idusuario"),
-			inverseJoinColumns = @JoinColumn(name = "idperfil"))
+			inverseJoinColumns = @JoinColumn(name = "idarticulo"))
 	private List<Perfil> perfiles;
 
 	public Integer getId() {
