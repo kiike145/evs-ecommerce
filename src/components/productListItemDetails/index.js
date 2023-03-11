@@ -6,12 +6,23 @@ import Modal from 'react-bootstrap/Modal';
 
 const ProductListItemDetail = ({ product }) => {
 
-    const [show, setShow] = useState(false);
-    // const [productosUser, setProductosUser] = useState([]);
     const isLogged = sessionStorage.getItem("isLogged");
+
+    const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const productList = sessionStorage.getItem("productList");
+
+    const onAddToProductsUser = () => {
+
+        // Obtenemos el valor de la variable "productList", en caso de que sea null -> se inicializa como un array vacio
+        const productList = JSON.parse(sessionStorage.getItem("productList")) || [];
+        productList.push(product);
+        sessionStorage.setItem("productList", JSON.stringify(productList));
+        handleClose();
+    };
 
     return (
         <>
@@ -34,11 +45,13 @@ const ProductListItemDetail = ({ product }) => {
                     </Button>
 
                     {isLogged === "true" ?
-                        <Button variant="primary" onClick={handleClose}>
-                            Add to de cart
-                        </Button> : <p>Have to be logged</p>
+                        // <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary" onClick={onAddToProductsUser}>
+                            Add to the cart
+                        </Button>
+                        :
+                        <p>Have to be logged</p>
                     }
-
                 </Modal.Footer>
             </Modal>
         </>
