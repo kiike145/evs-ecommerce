@@ -2,14 +2,11 @@ import { useEffect, useState } from 'react';
 import ProductList from '../productList';
 import "./home.css";
 
+import banner from "../../imgs/Scarpe-1440x610-Sneakers-FindYourOwn.webp"
+
 const Home = () => {
 
-    const isLogged = sessionStorage.getItem("isLogged");
-
     const [product, setProduct] = useState([]);
-
-    //const id1 = Math.floor(Math.random() * 10) + 1;
-    //const id2 = Math.floor(Math.random() * 10) + 1;
 
     useEffect(() => {
         fetch("http://localhost:8080/articulos/list")
@@ -19,11 +16,15 @@ const Home = () => {
     );
 
     return (
-        <div>
+        <>
             <h2>Home</h2>
-            <ProductList products={product} />
-        </div>
+            <div className="d-flex justify-content-center">
+                <img src={banner} className="banner"></img>
+            </div>
 
+            <h3>Featured Products</h3>
+            <ProductList products={product} />
+        </>
     );
 };
 
