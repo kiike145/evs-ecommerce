@@ -1,0 +1,16 @@
+.info h3 {
+  text-align: left;
+  display: block !important;
+}
+
+.imagenCarro {
+  height: 60%;
+}
+
+.precio h3 {
+  display: block !important;
+}
+
+.infoMsg {
+  text-align: center;
+}

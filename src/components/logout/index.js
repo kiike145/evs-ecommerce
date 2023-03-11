@@ -6,6 +6,7 @@ const Logout = () => {
         <Nav.Link onClick={() => {
             sessionStorage.setItem("isLogged", false);
             window.location.reload();
+            sessionStorage.setItem("productList", null)
         }}>
             Logout
         </Nav.Link>);
