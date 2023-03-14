@@ -21,8 +21,12 @@ public class UsuariosController {
 	UsersService userService;
 	
 	@PostMapping("/signup")
-	public void registrarUsuario(@RequestBody Usuario user) {
-		userService.registrarUsuario(user);
+	public ResponseEntity<Usuario> registrarUsuario(@RequestBody Usuario user) {
+		
+		if (userService.registrarUsuario(user)) {
+			return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		}
+		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	@PostMapping("/login")
@@ -30,11 +34,9 @@ public class UsuariosController {
 		
 		// REVISAR DEVOLCIONES: 200 + USER ENCONTRADO / 401 - NULL-ERROR
 		if (userService.findUserByUsernameAndPass(user.getUsername(), user.getPassword())) {
-			
-			System.out.println("user encontrado");
 			return new ResponseEntity<>(HttpStatus.ACCEPTED);
 		}
-		System.out.println("user no encontrado");
+		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	

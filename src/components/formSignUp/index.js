@@ -48,16 +48,21 @@ const SignupForm = () => {
 			headers: {
 				"Content-type": "application/json; charset=UTF-8",
 			},
+		}).then(data => {
+			if (data.status === 202) { // Usuario correcto
+				sessionStorage.setItem("isLogged", true);
+				redirect("/home");
+			}
+			if (data.status === 500) { // Usuario no encontrado
+				setError("Bad credentials");
+			}
 		});
 	};
 
 	const handleSubmit = event => {
-
 		event.preventDefault();
 		setError("");
 		saveUser();
-		sessionStorage.setItem("isLogged", true);
-		redirect("/home");
 	};
 
 	return (
@@ -70,7 +75,7 @@ const SignupForm = () => {
 						<input className="form-control" type="text" name="nombre" onChange={handleChange} placeholder="Name"></input>
 					</div>
 					<div className="form-row d-flex justify-content-between">
-						<label htmlFor="username">Apellido: </label>
+						<label htmlFor="apellido">Apellido: </label>
 						<input className="form-control" type="text" name="apellido" onChange={handleChange} placeholder="Surname"></input>
 					</div>
 					<div className="form-row d-flex justify-content-between">

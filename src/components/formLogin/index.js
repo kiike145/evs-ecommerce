@@ -31,8 +31,10 @@ const UserForm = () => {
         }).then(data => {
             if (data.status === 202) { // Usuario correcto
                 sessionStorage.setItem("isLogged", true);
+                redirect("/home");
             }
             if (data.status === 400) { // Usuario no encontrado
+                setError("User not found");
             }
         });
     };
@@ -41,7 +43,6 @@ const UserForm = () => {
         event.preventDefault();
         setError("");
         logIn();
-        redirect("/home");
     };
 
     const redirect = useNavigate();

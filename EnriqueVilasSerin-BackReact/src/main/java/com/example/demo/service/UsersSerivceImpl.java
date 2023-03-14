@@ -3,7 +3,6 @@ package com.example.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Perfil;
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UsersRepository;
 
@@ -14,19 +13,21 @@ public class UsersSerivceImpl implements UsersService {
 	UsersRepository usersRepo;
 
 	@Override
-	public void registrarUsuario(Usuario u) {
+	public boolean registrarUsuario(Usuario user) {
+
+		user.setEstatus(1);
 		
-		Perfil p = new Perfil();
-		p.setId(1);
-		p.setPerfil("USUARIO");
+		Usuario uAux = usersRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		
-		System.out.println(u);
+		if (uAux == null) {
+			
+			System.out.println("usuario VALIDO - " + user);
+			usersRepo.save(user);
+			return true;
+		}
 		
-		u.agregar(p);
-		u.setEstatus(1);
-		
-		usersRepo.save(u);
-		
+		System.out.println("usuario NO VALIDO - " + uAux);
+		return false;
 	}
 	
 	@Override
