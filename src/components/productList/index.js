@@ -5,7 +5,7 @@ const ProductList = ({ products = [] }) => {
 
     return (
         <>
-            <div className="lista d-flex flex-row justify-content-center">
+            <div className="lista d-flex flex-row justify-content-center flex-wrap">
                 {products.map(product =>
                     (<ProductListItem key={`product-${product.id}`} product={product} />)
                 )}
