@@ -1,8 +1,7 @@
 .footer {
   background-color: lightgray;
   height: 7vh;
+  position: relative;
   width: 100%;
-  position: absolute;
-  left: 0;
   bottom: 0;
 }
