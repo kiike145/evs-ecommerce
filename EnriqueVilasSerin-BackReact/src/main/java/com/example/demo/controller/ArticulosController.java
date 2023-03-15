@@ -6,9 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,15 +25,15 @@ public class ArticulosController {
 		return articulosService.obtenerArticulos();
 	}
 	
-	@GetMapping("/list/id={id1}&id={id2}&id={id3}&id={id4}")
-	public List<Articulo> listaArticulosDestacados (@PathVariable ("id1") Integer id1 , @PathVariable ("id2") Integer id2 , @PathVariable ("id3") Integer id3 , @PathVariable ("id4") Integer id4) {
+	@GetMapping("/list/home")
+	public List<Articulo> listaArticulosDestacados() {
 		
 		List<Integer> listaIds = new LinkedList<Integer>();
 		
-		listaIds.add(id1);
-		listaIds.add(id2);
-		listaIds.add(id3);
-		listaIds.add(id4);
+		listaIds.add(1);
+		listaIds.add(2);
+		listaIds.add(3);
+		listaIds.add(4);
 		
 		return articulosService.obtenerArticulosDestacados(listaIds);
 	}
